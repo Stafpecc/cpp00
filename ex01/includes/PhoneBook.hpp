@@ -21,9 +21,9 @@ public:
     void displayContact(int index) const;
 
 private:
-    Contact contacts[8];
-    int currentIndex;
-    int totalContacts;
+    Contact _contacts[8];
+    int _currentIndex;
+    int _totalContacts;
 };
 
 string  prompt_non_empty(const string &prompt);

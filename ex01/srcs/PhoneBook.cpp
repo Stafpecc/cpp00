@@ -1,14 +1,14 @@
 #include "PhoneBook.hpp"
 #include <iomanip>
 
-PhoneBook::PhoneBook() : currentIndex(0), totalContacts(0) {}
+PhoneBook::PhoneBook() : _currentIndex(0), _totalContacts(0) {}
 
 void PhoneBook::addContact(const Contact& contact)
 {
-    contacts[currentIndex] = contact;
-    currentIndex = (currentIndex + 1) % 8;
-    if (totalContacts < 8)
-        totalContacts++;
+    _contacts[_currentIndex] = contact;
+    _currentIndex = (_currentIndex + 1) % 8;
+    if (_totalContacts < 8)
+        _totalContacts++;
 }
 
 static string format_field(const string &str)
@@ -25,7 +25,7 @@ void PhoneBook::displayAll() const
 {
     int i = 0;
 
-    if (totalContacts == 0)
+    if (_totalContacts == 0)
     {
         cout << "No contacts available.\n";
         return;
@@ -36,22 +36,22 @@ void PhoneBook::displayAll() const
               << setw(10) << "Last Name" << "|"
               << setw(10) << "Nickname" << "\n";
 
-    while (i < totalContacts)
+    while (i < _totalContacts)
     {
         cout << setw(10) << i << "|"
-                  << format_field(contacts[i].getFirstName()) << "|"
-                  << format_field(contacts[i].getLastName()) << "|"
-                  << format_field(contacts[i].getNickname()) << "\n";
+                  << format_field(_contacts[i].getFirstName()) << "|"
+                  << format_field(_contacts[i].getLastName()) << "|"
+                  << format_field(_contacts[i].getNickname()) << "\n";
         i++;
     }
 }
 
 void PhoneBook::displayContact(int index) const {
-    if (index < 0 || index >= totalContacts)
+    if (index < 0 || index >= _totalContacts)
     {
         cout << "Invalid index.\n";
         return;
     }
-    contacts[index].display();
+    _contacts[index].display();
 }
 

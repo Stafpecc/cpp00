@@ -7,18 +7,18 @@ Contact::~Contact() {}
 void Contact::setInfo(const string& first, const string& last, const string& nick,
                       const string& phone, const string& secret)
 {
-    first_name = first;
-    last_name = last;
-    nickname = nick;
-    phone_number = phone;
-    darkest_secret = secret;
+    _first_name = first;
+    _last_name = last;
+    _nickname = nick;
+    _phone_number = phone;
+    _darkest_secret = secret;
 }
 
 void Contact::display() const
 {
-    cout << "First Name      : " << first_name << endl;
-    cout << "Last Name       : " << last_name << endl;
-    cout << "Nickname        : " << nickname << endl;
-    cout << "Phone Number    : " << phone_number << endl;
-    cout << "Darkest Secret  : " << darkest_secret << endl;
+    cout << "First Name      : " << _first_name << endl;
+    cout << "Last Name       : " << _last_name << endl;
+    cout << "_Nickname        : " << _nickname << endl;
+    cout << "Phone Number    : " << _phone_number << endl;
+    cout << "Darkest Secret  : " << _darkest_secret << endl;
 }

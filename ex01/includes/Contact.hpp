@@ -14,18 +14,18 @@ class Contact {
                      const string& phone, const string& secret);
         void display() const;
 
-        string getFirstName() const { return first_name; }
-        string getLastName() const { return last_name; }
-        string getNickname() const { return nickname; }
-        string getPhoneNumber() const { return phone_number; }
-        string getDarkestSecret() const { return darkest_secret; }
+        string getFirstName() const { return _first_name; }
+        string getLastName() const { return _last_name; }
+        string getNickname() const { return _nickname; }
+        string getPhoneNumber() const { return _phone_number; }
+        string getDarkestSecret() const { return _darkest_secret; }
 
     private:
-        string first_name;
-        string last_name;
-        string nickname;
-        string phone_number;
-        string darkest_secret;
+        string _first_name;
+        string _last_name;
+        string _nickname;
+        string _phone_number;
+        string _darkest_secret;
 };
 
 #endif

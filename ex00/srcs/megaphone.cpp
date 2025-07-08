@@ -14,6 +14,7 @@ static int islower(char c) {
 int main(int argc, char **argv)
 {
     int     j;
+    int     i;
     char    c;
 
     if (argc == 1)
@@ -22,7 +23,8 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    for (int i = 1; i < argc; ++i)
+    i = 1;
+    while (i < argc)
     {
         j = 0;
         while (argv[i][j])
@@ -33,6 +35,7 @@ int main(int argc, char **argv)
             cout << c;
             j++;
         }
+        i++;
     }
 
     cout << endl;
