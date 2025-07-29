@@ -11,14 +11,14 @@ void PhoneBook::addContact(const Contact& contact)
         _totalContacts++;
 }
 
-static string format_field(const string &str)
+static std::string format_field(const std::string &str)
 {
     const int width = 10;
 
     if (str.length() > width)
         return str.substr(0, width - 1) + ".";
 
-    return string(width - str.length(), ' ') + str;
+    return std::string(width - str.length(), ' ') + str;
 }
 
 void PhoneBook::displayAll() const
@@ -27,18 +27,18 @@ void PhoneBook::displayAll() const
 
     if (_totalContacts == 0)
     {
-        cout << "No contacts available.\n";
+        std::cout << "No contacts available.\n";
         return;
     }
 
-    cout << setw(10) << "Index" << "|"
-              << setw(10) << "First Name" << "|"
-              << setw(10) << "Last Name" << "|"
-              << setw(10) << "Nickname" << "\n";
+    std::cout << std::setw(10) << "Index" << "|"
+              << std::setw(10) << "First Name" << "|"
+              << std::setw(10) << "Last Name" << "|"
+              << std::setw(10) << "Nickname" << "\n";
 
     while (i < _totalContacts)
     {
-        cout << setw(10) << i << "|"
+        std::cout << std::setw(10) << i << "|"
                   << format_field(_contacts[i].getFirstName()) << "|"
                   << format_field(_contacts[i].getLastName()) << "|"
                   << format_field(_contacts[i].getNickname()) << "\n";
@@ -46,12 +46,28 @@ void PhoneBook::displayAll() const
     }
 }
 
-void PhoneBook::displayContact(int index) const {
+void PhoneBook::displayContact(int index) const
+{
     if (index < 0 || index >= _totalContacts)
     {
-        cout << "Invalid index.\n";
+        std::cout << "Invalid index.\n";
         return;
     }
     _contacts[index].display();
 }
 
+void PhoneBook::print_header(void)
+{
+    std::cout << "=========================================\n";
+    std::cout << "      WELCOME TO YOUR PHONEBOOK APP     \n";
+    std::cout << "=========================================\n\n";
+}
+
+void PhoneBook::print_menu(void)
+{
+    std::cout << "Please select one Command:\n";
+    std::cout << "  - ADD\n";
+    std::cout << "  - SEARCH\n";
+    std::cout << "  - EXIT\n\n";
+    std::cout << "--> ";
+}

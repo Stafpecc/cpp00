@@ -3,9 +3,7 @@
 #define RETURN_FAILURE 0
 #define RETURN_SUCCESS 1
 
-using namespace std; 
-
-static int islower(char c) {
+static int ft_islower(char c) {
     if (c >= 'a' && c <= 'z')
         return RETURN_SUCCESS;
     return RETURN_FAILURE;
@@ -19,7 +17,7 @@ int main(int argc, char **argv)
 
     if (argc == 1)
     {
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return 0;
     }
 
@@ -30,14 +28,14 @@ int main(int argc, char **argv)
         while (argv[i][j])
         {
             c = argv[i][j];
-            if (islower(c))
+            if (ft_islower(c))
                 c -= 32;
-            cout << c;
+            std::cout << c;
             j++;
         }
         i++;
     }
 
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }

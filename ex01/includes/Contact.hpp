@@ -3,29 +3,35 @@
 
 #include <iostream>
 
-using namespace std;
-
-class Contact {
+class Contact
+{
     public:
+
         Contact();
+        
+           void setInfo(
+                        const std::string& first,
+                        const std::string& last,
+                        const std::string& nick,
+                        const std::string& phone,
+                        const std::string& secret
+                    );
+
+        void        display() const;
+        std::string getFirstName() const;
+        std::string getLastName() const;
+        std::string getNickname() const;
+        std::string getPhoneNumber() const;
+        std::string getDarkestSecret() const;
+
         ~Contact();
 
-        void setInfo(const string& first, const string& last, const string& nick,
-                     const string& phone, const string& secret);
-        void display() const;
-
-        string getFirstName() const { return _first_name; }
-        string getLastName() const { return _last_name; }
-        string getNickname() const { return _nickname; }
-        string getPhoneNumber() const { return _phone_number; }
-        string getDarkestSecret() const { return _darkest_secret; }
-
     private:
-        string _first_name;
-        string _last_name;
-        string _nickname;
-        string _phone_number;
-        string _darkest_secret;
+        std::string _first_name;
+        std::string _last_name;
+        std::string _nickname;
+        std::string _phone_number;
+        std::string _darkest_secret;
 };
 
 #endif

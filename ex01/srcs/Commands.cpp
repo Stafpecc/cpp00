@@ -2,36 +2,36 @@
 
 static void clear_input()
 {
-    cin.clear();
+    std::cin.clear();
     clearerr(stdin);
 }
 
-string prompt_non_empty(const string &prompt) 
+std::string PhoneBook::prompt_non_empty(const std::string &prompt) 
 {
-    string input;
+    std::string input;
 
-    cout << prompt;
+    std::cout << prompt;
     while (true)
     {
         
-        if (!getline(cin, input))
+        if (!getline(std::cin, input))
         {
             clear_input();
             continue;
         }
 
-        if (cin.eof())
+        if (std::cin.eof())
         {
             clear_input();
-            cout << "\n";
-            cout << prompt;
+            std::cout << "\n";
+            std::cout << prompt;
             continue;
         }
     
         if (input.empty())
         {
-            cout << "Null input, retry\n";
-            cout << prompt;
+            std::cout << "Null input, retry\n";
+            std::cout << prompt;
             continue;
         }
 
@@ -39,48 +39,48 @@ string prompt_non_empty(const string &prompt)
     }
 }
 
-void phone_add(PhoneBook &book)
+void PhoneBook::phone_add(PhoneBook &book)
 {
     system("clear");
-    print_header();
+    PhoneBook::print_header();
 
-    cout << "\n[ADD] Enter new contact info:\n";
+    std::cout << "\n[ADD] Enter new contact info:\n";
 
-    string first = prompt_non_empty("First name: ");
-    string last = prompt_non_empty("Last name: ");
-    string nick = prompt_non_empty("Nickname: ");
-    string phone = prompt_non_empty("Phone number: ");
-    string secret = prompt_non_empty("Darkest secret: ");
+    std::string first = PhoneBook::prompt_non_empty("First name: ");
+    std::string last = PhoneBook::prompt_non_empty("Last name: ");
+    std::string nick = PhoneBook::prompt_non_empty("Nickname: ");
+    std::string phone = PhoneBook::prompt_non_empty("Phone number: ");
+    std::string secret = PhoneBook::prompt_non_empty("Darkest secret: ");
 
     Contact newContact;
     newContact.setInfo(first, last, nick, phone, secret);
     book.addContact(newContact);
 
-    cout << "\nContact added successfully!\n";
+    std::cout << "\nContact added successfully!\n";
 }
 
-void phone_search(PhoneBook &book)
+void PhoneBook::phone_search(PhoneBook &book)
 {
     int index;
-    string input;
+    std::string input;
 
     system("clear");
-    print_header();
+    PhoneBook::print_header();
 
-    cout << "\n[SEARCH] Contact list:\n";
+    std::cout << "\n[SEARCH] Contact list:\n";
     book.displayAll();
 
-    cout << "Enter index to display (0 - 7): ";
+    std::cout << "Enter index to display (0 - 7): ";
     while (true)
     {
 
-        if (!getline(cin, input))
+        if (!getline(std::cin, input))
         {
             clear_input();
             continue;
         }
 
-        if (cin.eof())
+        if (std::cin.eof())
         {
             clear_input();
             continue;
@@ -88,7 +88,7 @@ void phone_search(PhoneBook &book)
 
         if (input.length() != 1 || input[0] < '0' || input[0] > '7')
         {
-            cout << "Invalid index.\n";
+            std::cout << "Invalid index.\n";
             break;
         }
 
